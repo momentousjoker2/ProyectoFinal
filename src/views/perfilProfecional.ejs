@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Menù Lateral con Css</title>
+	<link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+		<div class="btn-menu">
+			<label for="btn-menu">☰</label>
+		</div>
+			<div class="logo">
+				<h1>Logotipo</h1>
+			</div>
+		</div>
+	</header>
+	<div class="capa"></div>
+<!--	--------------->
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+			<a href="/perfil">Perfil personal</a>
+			<a href="/perfilLaboral">Prefil Laboral </a>
+			<a href="/perfilProfecional">Prefil Profecional </a>
+			<a href="/encuesta">Encuesta </a>
+			<a href="/logout">logout </a>
+
+		</nav>
+		<label for="btn-menu">✖️</label>
+	</div>
+</div>
+    <form action="/perfilProfecional" method="post" class="formulario">
+	<h1>PERFIL PROFESIONAL</h1>
+	<fieldset>
+  <legend>DATOS GENERALES</legend>
+  
+  <input hidden=true name="_id" value="<%= datos._id %>" />
+  <input hidden=true name="idUsuarios" value="<%= datos.idUsuarios %>" />
+  
+ <label for="AreaDeEstudio">Area de campo o estudio</label><br/>
+  <input type="text" id="AreaDeEstudio" name="AreaDeEstudio" value="<%= datos.AreaDeEstudio %>" /><br/><br/>
+
+   <label for="Tituacion">Tipo de Tituacion</label><br/>
+  <input type="text" id="Tituacion" name="Tituacion" value="<%= datos.Tituacion %>" /><br/><br/>
+
+   <label for="Experencia_laboral">Experencia laboral/practica</label><br/>
+  <input type="text" id="Experencia_laboral" name="Experencia_laboral" value="<%= datos.Experencia_laboral %>" /><br/><br/>
+
+   <label for="Competencia_laboral">Competencia laboral</label><br/>
+  <input type="text" id="Competencia_laboral" name="Competencia_laboral" value="<%= datos.Competencia_laboral %>" /><br/><br/>
+
+   <label for="Posicionamiento_institución">Posicionamiento de institución de egreso</label><br/>
+  <input type="text" id="Posicionamiento_institución" name="Posicionamiento_institución" value="<%= datos.Posicionamiento_institución %>" /><br/><br/>
+
+   <label for="Dominio_Idioma">Dominio de idioma extranjeros</label><br/>
+  <input type="text" id="Dominio_Idioma" name="Dominio_Idioma" value="<%= datos.Dominio_Idioma %>" /><br/><br/>
+
+   <label for="Recomendaciones">Recomendaciones/Referencias</label><br/>
+  <input type="text" id="Recomendaciones" name="Recomendaciones" value="<%= datos.Recomendaciones %>" /><br/><br/>
+
+   <label for="Personalidad">Personalidad/Actitudes</label><br/>
+  <input type="text" id="Personalidad" name="Personalidad" value="<%= datos.Personalidad %>" /><br/><br/>
+
+   <label for="Capacidad">Capacidad de liderazgo</label><br/>
+  <input type="text" id="Capacidad" name="Capacidad" value="<%= datos.Capacidad %>" /><br/><br/>
+
+   <label for="Otros">Otros</label><br/>
+  <input type="text" id="Otros" name="Otros" value="<%= datos.Otros %>" /><br/><br/>
+
+	<button class="button" type="submit">Guardar</button>
+
+  </fieldset>
+
+	</body>
+</html>

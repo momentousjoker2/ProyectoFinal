@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Menù Lateral con Css</title>
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+		<div class="btn-menu">
+		</div>
+			<div class="logo">
+			</div>
+		</div>
+	</header>
+	<div class="capa"></div>
+<!--	--------------->
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+	</div>
+</div>
+<!--	--------------->
+
+    <div class="formulario">
+    
+    <h1>Login</h1>
+    <h3 >Bienvenido a tu encuesta de titulacion</h3>
+
+     <div class="contenedor">
+         <form action="/login" method="POST"> 
+         <div class="input-contenedor">
+         <input type="email" placeholder="Correo Electronico" name="email" required>
+         </div>
+         
+         <div class="input-contenedor">
+         <input type="password" placeholder="Contraseña" name="password" required> 
+         </div>
+         <input type="submit" value="Login" class="button">
+         </form>
+         <br><br>
+         <p>¿Estas Registrado? </br> !!Crea una cuenta!!</br> <a class="link" href="/registro">Registrate </a></p>
+     </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Menù Lateral con Css</title>
+	<link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+		<div class="btn-menu">
+			<label for="btn-menu">☰</label>
+		</div>
+			<div class="logo">
+				<h1>Logotipo</h1>
+			</div>
+		</div>
+	</header>
+	<div class="capa"></div>
+<!--	--------------->
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+			<a href="/perfil">Perfil personal</a>
+			<a href="/perfilLaboral">Prefil Laboral </a>
+			<a href="/perfilProfecional">Prefil Profecional </a>
+			<a href="/encuesta">Encuesta </a>
+			
+		</nav>
+		<label for="btn-menu">✖️</label>
+	</div>
+</div>
+
+    <form action="/perfil" method="post" class="formulario">
+    <fieldset >
+    <legend>Datos Generales</legend>
+            
+        <input hidden=true name="_id" value="<%= datos._id %>">
+        <input hidden=true name="idUsuarios" value="<%= datos.idUsuarios %>">
+
+        <label for="Nombre">Nombre:</label><br/>
+        <input type="text" id="Nombre" name='Nombre' value="<%= datos.Nombre %>"><br/><br/>
+        
+        <label for="ApellidoPaterno">Apellido Paterno:</label><br/>
+        <input type="text" id="ApellidoPaterno" name="ApellidoPaterno" value="<%= datos.ApellidoPaterno %>"><br/><br/>
+
+        <label for="ApellidoMaterna">Apellido Materna:</label><br/>
+        <input type="text" id="ApellidoMaterna" name="ApellidoMaterna" value="<%= datos.ApellidoMaterna %>"><br/><br/>
+
+        <label for="fechaNac">Fecha Nacimiento:</label><br/>
+        <input type="date" id="fechaNac" name="fechaNac" value="<%= datos.fechaNac %>"><br/><br/>
+
+        <label for="genero">Sexo:</label><br/>
+        <select name="genero" id="genero">
+            <%_ if ( datos.genero === 'Masculino' ) { %>
+            <option value="Masculino"  selected >Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <%_ } else {  %>
+            <option value="Masculino" >Masculino</option>
+            <option value="Femenino" selected >Femenino</option>
+            <%_ }  %>
+        </select><br/><br/>
+        
+        <label for="Cp">Cp:</label><br/>
+        <input type="text" id="Cp" name="Cp" value="<%= datos.Cp %>" maxlength="5" minlength="5" oninput="codigoPostal()" required><br/><br/>
+        
+        <label for="Estado">Estado:</label><br/>
+        <input type="text" id="Estado" name="Estado" value="<%= datos.Estado %>" ><br/><br/>
+
+        <label for="municipio">Municipio:</label><br/>
+        <input type="text" id="municipio" name="municipio" value="<%= datos.municipio %>" ><br/><br/>
+
+        <label for="Ciudad">Ciudad:</label><br/>
+        <input type="text" id="Ciudad" name="Ciudad" value="<%= datos.Ciudad %>" ><br/><br/>
+        
+        <label for="Colonia">Colonia</label><br/>
+        <input type="text" id="Colonia" name="Colonia" value="<%= datos.Colonia %>" /><br /><br />
+        
+        <label for="calle_N">calle y numero:</label><br/>
+        <input type="text" id="calle_N" name="calle_N" value="<%= datos.calle_N %>"><br/><br/>
+        
+        <label for="numero_C">Numero Celular:</label><br/>
+        <input type="text" id="numero_C" name="numero_C" value="<%= datos.numero_C %>"><br/><br/>
+
+        <label for="numero_p">Numero Particular:</label><br/>
+        <input type="text" id="numero_p" name="numero_p" value="<%= datos.numero_p %>"><br/><br/>
+
+    </fieldset>
+    <fieldset>
+    <legend>Datos Escolares</legend>
+
+        <label for="nControl">Numero de control:</label><br/>
+        <input type="text" id="nControl" name="nControl" value="<%= datos.nControl %>"><br/><br/>
+
+        <label for="Carrera">Carrera:</label><br/>
+        <input type="text" id="Carrera" name="Carrera" value="<%= datos.Carrera %>"><br/><br/>
+
+        <label for="Especialidad">Especialidad:</label><br/>
+        <input type="text" id="Especialidad" name="Especialidad" value="<%= datos.Especialidad %>"><br/><br/>
+
+        <label for="fecha_egreso">Fecha de Egreso:</label><br/>
+        <input type="text" id="fecha_egreso" name="fecha_egreso" value="<%= datos.fecha_egreso %>"><br/><br/>
+
+        <label for="titulado">Titulado:</label><br/>
+        <select name="titulado"  id="titulado" name="titulado" >
+            <%_ if ( datos.titulado === 'Si' ) { %>
+            <option value="Si"  selected >Si</option>
+            <option value="No">No</option>
+            <%_ } else {  %>
+            <option value="Si" >Si</option>
+            <option value="No" selected >No</option>
+            <%_ }  %>
+        </select><br/><br/>
+
+        <label for="paqueteComputo">Puede Manegar paquetes de computo:</label><br/>
+        <input type="text" id="paqueteComputo" name="paqueteComputo" value="<%= datos.paqueteComputo %>"><br/><br/>
+    </fieldset>
+    <button class="button" type="submit">Guardar</button>
+    </form>
+    </body>
+    <script>
+       async function codigoPostal()
+        {
+            var cp = document.getElementById('Cp');
+            if(cp.value.length === 5 ){
+                let response = await fetch('https://api.copomex.com/query/info_cp/' + cp.value  + '?token=3f8d34a0-a95c-426d-8b19-7af0677c65bf');
+                let data = await response.json()
+
+                if(data.error === true){
+                    alert(data.error_message)
+                }else{
+                    document.getElementById('Estado').value=data[0].response.estado
+                    document.getElementById('municipio').value=data[0].response.municipio
+                    document.getElementById('Ciudad').value=data[0].response.ciudad
+                    document.getElementById('Colonia').value=data[0].response.asentamiento
+                }
+            }
+        }
+    </script>
+</html>

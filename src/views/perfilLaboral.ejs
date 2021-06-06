@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Menù Lateral con Css</title>
+	<link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+		<div class="btn-menu">
+			<label for="btn-menu">☰</label>
+		</div>
+			<div class="logo">
+				<h1>Logotipo</h1>
+			</div>
+		</div>
+	</header>
+	<div class="capa"></div>
+<!--	--------------->
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+			<a href="/perfil">Perfil personal</a>
+			<a href="/perfilLaboral">Prefil Laboral </a>
+			<a href="/perfilProfecional">Prefil Profecional </a>
+			<a href="/encuesta">Encuesta </a>
+            <a href="/logout">logout </a>
+			
+		</nav>
+		<label for="btn-menu">✖️</label>
+	</div>
+</div>
+    <form action="/perfilLaboral" method="post" class="formulario">
+      <h1>PERFIL LABORAL</h1>
+      <fieldset>
+         <legend>DATOS GENERALES</legend>
+         <input hidden=true name="_id" value="<%= datos._id %>" />
+         <input hidden=true name="idUsuarios" value="<%= datos.idUsuarios %>" />
+
+         <label for="ActividadActual">Actividad a la que se dedica actualmente:</label><br />
+         <input type="text" id="ActividadActual" name="ActividadActual" value="<%= datos.ActividadActual %>" /> <br /><br />
+
+         <label for="queEstudia">Si estudie indique que:</label><br />
+         <input type="text" id="queEstudia" size="50" name="queEstudia" value="<%= datos.queEstudia %>" /><br /><br />
+
+         <label for="tiempoPrimerEmplero">En caso de trabajar, ¿Cuanto tiempo requirio para obtener el primer empleo?</label><br />
+         <input type="text" id="tiempoPrimerEmplero" size="100" name="tiempoPrimerEmplero" value="<%= datos.tiempoPrimerEmplero %>" /><br /><br />
+
+         <label for="MedioObtenerTrabajo">Medio para obtener el empleo</label><br />
+         <input type="text" id="MedioObtenerTrabajo" name="MedioObtenerTrabajo" value="<%= datos.MedioObtenerTrabajo %>" /><br /><br />
+
+         <label for="RequisitosTrabajo">Requisitos de contratación</label><br />
+         <input type="text" id="RequisitosTrabajo" name="RequisitosTrabajo" value="<%= datos.RequisitosTrabajo %>" /><br /><br />
+
+         <label for="idiomaTrabajo">Idioma que utiliza en su trabajo</label><br />
+         <input type="text" id="idiomaTrabajo" name="idiomaTrabajo" value="<%= datos.idiomaTrabajo %>" /><br /><br />
+
+         <label for="proporsionIdioma">¿En que proporsión utiliza en el desempeño de sus actividades laborales cada una de las habilidades del idioma extranjero?</label><br />
+         <input type="text" id="proporsionIdioma" name="proporsionIdioma" value="<%= datos.proporsionIdioma %>" /><br /><br />
+
+      </fieldset><br />
+      <fieldset>
+         <label for="AntiguedadEmpleto">Antiguedad en el empleo</label><br />
+         <input type="text" id="AntiguedadEmpleto" name="AntiguedadEmpleto" value="<%= datos.AntiguedadEmpleto %>" /><br /><br />
+
+         <label for="ingresos">Ingreso mensual</label><br />
+         <input type="number" id="ingresos" name="ingresos" value="<%= datos.ingresos %>" /><br /><br />
+
+         <label for="nivelJerarquico">Nivel jerarquico en trabajo:</label><br />
+         <input type="text" id="nivelJerarquico" name="nivelJerarquico" value="<%= datos.nivelJerarquico %>" /><br /><br />
+
+         <label for="tipoContrado">Tipo de contrato</label><br />
+         <input type="text" id="tipoContrado" name="tipoContrado" value="<%= datos.tipoContrado %>" /><br /><br />
+
+         <label for="puestoRelacionado">Relación de puesto con su formación</label><br />
+         <input type="text" id="puestoRelacionado" name="puestoRelacionado" value="<%= datos.puestoRelacionado %>" /><br /><br />
+
+
+      </fieldset><br />
+      <fieldset>
+         <legend>DATOS DE LA EMPRESA U ORGANISMO</legend>
+
+         <label for="organismo">Organismo</label><br />
+         <input type="text" id="organismo" name="organismo" value="<%= datos.organismo %>" /><br /><br />
+
+         <label for="giro">Giro o actividad principal</label><br />
+         <input type="text" id="giro" name="giro" value="<%= datos.giro %>" /><br /><br />
+
+         <label for="razonSocial">Razon social</label><br />
+         <input type="text" id="razonSocial" name="razonSocial" value="<%= datos.razonSocial %>" /><br /><br />
+         
+        <label for="Cp">Cp:</label><br/>
+        <input type="text" id="Cp" name="Cp" value="<%= datos.Cp %>" maxlength="5" minlength="5" oninput="codigoPostal()" required><br/><br/>
+ 
+         <label for="Estado">Estado</label><br />
+         <input type="text" id="Estado" name="Estado" value="<%= datos.Estado %>" /><br /><br />
+
+         <label for="Municipio">Municipio</label><br />
+         <input type="text" id="Municipio" name="Municipio" value="<%= datos.Municipio %>" /><br /><br />
+
+         <label for="Ciudad">Ciudad</label><br />
+         <input type="text" id="Ciudad" name="Ciudad" value="<%= datos.Ciudad %>" /><br /><br />
+
+         <label for="Colonia">Colonia</label><br />
+         <input type="text" id="Colonia" name="Colonia" value="<%= datos.Colonia %>" /><br /><br />
+
+         <label for="calle_N">Calle y numero</label><br />
+         <input type="text" id="calle_N" name="calle_N" value="<%= datos.calle_N %>" /><br /><br />
+
+         <label for="Telefono">Telefono</label><br />
+         <input type="text" id="Telefono" name="Telefono" value="<%= datos.Telefono %>" /><br /><br />
+
+         <label for="Email">Email</label><br />
+         <input type="text" id="Email" name="Email" value="<%= datos.Email %>" /><br /><br />
+
+         <label for="jefe">Nombre y puesto del jefe</label><br />
+         <input type="text" id="jefe" name="jefe" value="<%= datos.jefe %>" /><br /><br />
+
+         <label for="SectorPrimario">Sector primario</label><br />
+         <input type="text" id="SectorPrimario" name="SectorPrimario" value="<%= datos.SectorPrimario %>" /><br /><br />
+
+         <label for="sectorSecundario">Sector secundario</label><br />
+         <input type="text" id="sectorSecundario" name="sectorSecundario" value="<%= datos.sectorSecundario %>" /><br /><br />
+
+         <label for="sectorTersario">Sector tersario</label><br />
+         <input type="text" id="sectorTersario" name="sectorTersario" value="<%= datos.sectorTersario %>" /><br /><br />
+
+         <label for="sizeEmpresa">Tamaño de la empresa</label><br />
+         <input type="text" id="sizeEmpresa" name="sizeEmpresa" value="<%= datos.sizeEmpresa %>" /><br /><br />
+
+         <button class="button" type="submit">Guardar</button>
+      </fieldset>
+   </form>
+</body>
+ <script>
+       async function codigoPostal()
+        {
+            var cp = document.getElementById('Cp');
+            if(cp.value.length === 5 ){
+                let response = await fetch('https://api.copomex.com/query/info_cp/' + cp.value  + '?token=3f8d34a0-a95c-426d-8b19-7af0677c65bf');
+                let data = await response.json()
+
+                if(data.error === true){
+                    alert(data.error_message)
+                }else{
+                    document.getElementById('Estado').value=data[0].response.estado
+                    document.getElementById('Municipio').value=data[0].response.municipio
+                    document.getElementById('Ciudad').value=data[0].response.ciudad
+                    document.getElementById('Colonia').value=data[0].response.asentamiento
+                }
+            }
+        }
+    </script>
+</html>
