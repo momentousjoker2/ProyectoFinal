@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const { render } = require('ejs');
 ObjectID = require('mongodb').ObjectID;
+assert = require('assert');
 const app = express();
 const connectionString = "mongodb+srv://itcg:1234567890@cluster0.rtiaw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 var ssn;
@@ -168,7 +169,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
     });
 
 
-    app.get('/encuesta', async (req, res) =>{
+    app.get('/encuesta', async (req, res) => {
         if (req.session.login) {
 
             encuestas = await encuesta.findOne({ idUsuarios: req.session.idUsuario });
@@ -177,7 +178,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
                 encuestas = new Object();
                 encuestas.idUsuarios = req.session.idUsuario
                 res.render('encuesta.ejs', { 'datos': encuestas })
-            }else {
+            } else {
                 res.render('encuestaRealizadad.ejs')
             }
 
@@ -194,7 +195,30 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
 
     app.get('/logout', function (req, res) {
         req.session.destroy();
-                    res.redirect('/')
+        res.redirect('/')
+
+    });
+
+    app.get('/resultados', async (req, res) => {
+        nPerfil = await perfil.find({});
+        nPerfil= await nPerfil.toArray()
+        
+        nPerfilL = await perfilLaboral.find({});
+        nPerfilL= await nPerfilL.toArray()
+
+        nPerfilP = await perfilProfecional.find({});
+        nPerfilP= await nPerfilP.toArray()
+        
+        encuestas = await encuesta.find({});
+        encuestas= await encuestas.toArray()
+
+        console.log(nPerfil);
+        console.log(nPerfilL);
+        console.log(nPerfilP);
+        console.log(encuestas);
+
+        res.render('resultados.ejs', { 'nPerfil': nPerfil ,"nPerfilL":nPerfilL,"nPerfilP":nPerfilP,"encuestas":encuestas})
+
 
     });
 

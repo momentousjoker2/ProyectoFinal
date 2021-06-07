@@ -1,0 +1,329 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Menù Lateral con Css</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+		<div class="btn-menu">
+			<label for="btn-menu">☰</label>
+		</div>
+			<div class="logo">
+				<h1>Logotipo</h1>
+			</div>
+		</div>
+	</header>
+	<div class="capa"></div>
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+			<a href="/perfil">Perfil personal</a>
+			<a href="/perfilLaboral">Prefil Laboral </a>
+			<a href="/perfilProfecional">Prefil Profecional </a>
+			<a href="/encuesta">Encuesta </a>
+			<a href="/logout">logout </a>
+
+		</nav>
+		<label for="btn-menu">✖️</label>
+	</div>
+</div>
+<form action="" method="" class="formulario3">
+     <table id="resultados" class="table table-hover">
+
+        <tbody>
+             <%  var idUser ; for(var i=0; i<nPerfil.length; i++)  { idUser=nPerfil[i].idUsuarios %>
+            <tr ><td colspan="5" align="center">Alumno: <%= nPerfil[i].Nombre %> <%= nPerfil[i].ApellidoPaterno %> <%= nPerfil[i].ApellidoMaterna %></td></tr>
+            <tr class="parent" >
+                <th colspan="5"><a href="#">Perfil personal</a></th>
+            </tr>
+           
+                <tr style="display: none;">
+                <th>Nombre</th>
+                <th>Apellido paterno</th>
+                <th>Apellido materno</th>
+                <th>Fecha de nacimiento</th>
+                <th>Género</th>
+                </tr>
+                <tr style="display: none;">
+                
+                <th><%= nPerfil[i].Nombre %></th>
+                <th><%= nPerfil[i].ApellidoPaterno %></th>
+                <th><%= nPerfil[i].ApellidoMaterna %></th>
+                <th><%= nPerfil[i].fechaNac %></th>
+                <th><%= nPerfil[i].genero %></th>
+                </tr>
+
+                <tr style="display: none;">
+                <th>Codigo postal</th>
+                <th>Estado</th>
+                <th>Municipio</th>
+                <th>Ciudad</th>
+                <th>Colonia</th>
+                </tr>
+                
+                <tr style="display: none;">  
+                <th><%= nPerfil[i].Cp %></th>
+                <th><%= nPerfil[i].Estado %></th>
+                <th><%= nPerfil[i].municipio %></th>
+                <th><%= nPerfil[i].Ciudad %></th>
+                <th><%= nPerfil[i].Colonia %></th>
+                </tr>
+
+                <tr style="display: none;">
+                
+                <th>Calle</th>
+                <th>Número Celular</th>
+                <th>Número Particular</th>
+                <th>Número de control</th>
+                <th>Carrera</th>
+                
+                </tr>
+                <tr style="display: none;">  
+                <th><%= nPerfil[i].calle_N %></th>
+                <th><%= nPerfil[i].numero_C %></th>
+                <th><%= nPerfil[i].numero_p %></th>
+                <th><%= nPerfil[i].nControl %></th>
+                <th><%= nPerfil[i].Carrera %></th>
+                
+                </tr>
+
+                <tr style="display: none;">
+                <th>Especialidad</th>
+                <th>Fecha de egreso</th>
+                <th>Titulado</th>
+                <th colspan="2">Paquete de compúto</th>
+                </tr>
+                <tr style="display: none;">
+                <th><%= nPerfil[i].Especialidad %></th>
+                <th><%= nPerfil[i].fecha_egreso %></th>
+                <th><%= nPerfil[i].titulado %></th> 
+                <th colspan="2"><%= nPerfil[i].paqueteComputo %></th>
+                </tr>
+
+            <tr class="parent">
+            <% if( idUser === nPerfilL[i].idUsuarios ){ %>
+                <th colspan="5"><a href="#">Perfil laboral</a></th>
+            </tr>
+            <tr style="display: none;">
+                <th>Actividad actual</th>
+                <th>Que estudia</th>
+                <th>Tiempo de primer empleo</th>
+                <th>Medio de obtener el empleo</th>
+                <th>Requisitos del trabajo</th>
+
+            </tr>
+            <tr style="display: none;">
+                <th> <%= nPerfilL[i].ActividadActual  %></th>
+                <th> <%= nPerfilL[i].queEstudia  %></th>
+                <th><%= nPerfilL[i].tiempoPrimerEmplero  %></th>
+                <th><%= nPerfilL[i].MedioObtenerTrabajo  %></th>
+                <th><%= nPerfilL[i].RequisitosTrabajo  %></th>
+            </tr>
+            <tr style="display: none;">
+                <th>Idioma del trabajo</th>
+                <th>Proporsion del idioma</th>
+                <th>Antiguedad del empleo </th>
+                <th>Ingresos</th>
+                <th>Nivel Jerarquico</th>
+
+
+            </tr>
+            <tr style="display: none;">
+                <th><%= nPerfilL[i].idiomaTrabajo  %></th>
+                <th><%= nPerfilL[i].proporsionIdioma  %></th>
+                <th><%= nPerfilL[i].AntiguedadEmpleto  %></th>
+                <th><%= nPerfilL[i].ingresos  %></th>
+                <th><%= nPerfilL[i].nivelJerarquico  %></th>
+            </tr>
+            <tr style="display: none;">
+            
+                <th>Tiempo de contrato</th>
+                <th>Puesto relacionado</th>
+                <th>Organismo</th>
+                <th>Giro</th>
+                <th>Razón social</th>
+
+            </tr>
+            <tr style="display: none;">
+            
+                <th><%= nPerfilL[i].tipoContrado  %></th>
+                <th><%= nPerfilL[i].puestoRelacionado  %></th>
+                <th><%= nPerfilL[i].organismo  %></th>
+                <th><%= nPerfilL[i].giro  %></th>
+                <th><%= nPerfilL[i].razonSocial  %></th>
+  
+            </tr>
+
+            <tr style="display: none;">
+            
+                <th>Codigo postal</th>
+                <th>Estado</th>
+                <th>Ciudad</th>
+                <th>Colonia</th>
+                <th>Calle</th>
+            </tr>
+                <tr style="display: none;">
+                
+                <th><%= nPerfilL[i].Cp  %></th>
+                <th><%= nPerfilL[i].Estado  %></th>
+                <th><%= nPerfilL[i].Municipio  %></th>
+                <th><%= nPerfilL[i].Colonia  %></th>
+                <th><%= nPerfilL[i].calle_N  %></th>
+                
+            </tr>
+            <tr style="display: none;">
+            
+                <th>Número</th>
+                <th>Email</th>
+                <th> Jefe</th>
+                <th>Sector primario</th>
+                <th>Sector secundario</th>
+            </tr>
+
+            <tr style="display: none;">
+            
+                <th><%= nPerfilL[i].Telefono  %></th>
+                <th><%= nPerfilL[i].Email  %></th>
+                <th><%= nPerfilL[i].jefe  %></th>
+                <th><%= nPerfilL[i].SectorPrimario  %></th>
+                <th><%= nPerfilL[i].sectorSecundario  %></th>
+            </tr>
+            <tr style="display: none;">
+            
+
+                <th>Sector tersario</th>
+                <th colspan="4">Tamaño de la empresa</th>
+            </tr>
+
+            <tr style="display: none;">
+            
+                <th><%= nPerfilL[i].sectorTersario  %></th>
+                <th colspan="4"><%= nPerfilL[i].sizeEmpresa %></th>
+            </tr>
+
+
+
+            <% } %>
+             <% if( idUser === nPerfilP[i].idUsuarios ){ %>
+
+            <tr class="parent">
+                <th colspan="5"><a href="#">Perfil profesional</a></th>
+            </tr>
+            <tr style="display: none;">
+                <th>Area de estudio</th>
+                <th>Titulacón</th>
+                <th>Experencia laboral</th>
+                <th>Competencia laboral</th>
+                <th>Posicionamiento de la institución</th>
+            </tr>
+            <tr style="display: none;">
+                <th><%= nPerfilP[i].AreaDeEstudio %></th>
+                <th><%= nPerfilP[i].Tituacion %></th>
+                <th><%= nPerfilP[i].Experencia_laboral %></th>
+                <th><%= nPerfilP[i].Competencia_laboral %></th>
+                <th><%= nPerfilP[i].Posicionamiento_institucion %></th>
+            </tr>
+            <tr style="display: none;">
+                <th>Dominio del idioma</th>
+                <th>Recomendaciones</th>
+                <th>Personalidad </th>
+                <th>Capacidad</th>
+                <th>Otros</th>
+            </tr>
+            <tr style="display: none;">
+                <th><%= nPerfilP[i].Dominio_Idioma %></th>
+                <th><%= nPerfilP[i].Recomendaciones %></th>
+                <th><%= nPerfilP[i].Personalidad %></th>
+                <th><%= nPerfilP[i].Capacidad %></th>
+                <th><%= nPerfilP[i].Otros %></th>
+            </tr>
+
+             <% } %>
+             <% if( idUser === encuestas[i].idUsuarios ){ %>
+            <tr class="parent">
+                <th colspan="5"><a href="#">Encuesta</a></th>
+            </tr>
+            <tr style="display: none;">
+                <th>Calidad de los docentes</th>
+                <th>Plan de Estudios</th>
+                <th colspan="3">Oportunidad de participar en proyectos de Investigación y desarrollo</th>
+             </tr>
+             
+            
+            <tr style="display: none;">
+                <th><%= encuestas[i].pregunta1 %></th>
+                <th><%= encuestas[i].pregunta2 %></th>
+                <th colspan="3"><%= encuestas[i].pregunta3 %></th>
+            </tr>
+            <tr style="display: none;">
+                <th>Énfasis que se le prestaba a la investigación dentro del proceso de enseñanza</th>
+                <th>Satisfacción con las condiciones de estudio (infraestructura)</th>
+                <th colspan="3">Experiencia obtenida a través de la residencia profesional</th>
+            </tr>
+            <tr style="display: none;">
+                <th><%= encuestas[i].pregunta4 %></th>
+                <th><%= encuestas[i].pregunta5 %></th>
+                <th colspan="3"><%= encuestas[i].pregunta6 %></th>
+            </tr>
+             <% } %>
+           
+    
+            <% } %>
+   </tbody>
+    </table>
+
+       
+</form>
+
+</body>
+
+
+<script>
+    $("#resultados").on("click", "a", function (e) {
+        
+
+        e.preventDefault();
+        if ($(this).closest("tr").nextUntil("tr.parent")[0].style.display == 'none') {
+
+            $(this).closest("tr").nextUntil("tr.parent")[0].style.display = 'table-row';
+            $(this).closest("tr").nextUntil("tr.parent")[1].style.display = 'table-row';
+            $(this).closest("tr").nextUntil("tr.parent")[2].style.display = 'table-row';
+            $(this).closest("tr").nextUntil("tr.parent")[3].style.display = 'table-row';
+            $(this).closest("tr").nextUntil("tr.parent")[4].style.display = 'table-row';
+            $(this).closest("tr").nextUntil("tr.parent")[5].style.display = 'table-row';
+            $(this).closest("tr").nextUntil("tr.parent")[6].style.display = 'table-row';
+            $(this).closest("tr").nextUntil("tr.parent")[7].style.display = 'table-row';
+            $(this).closest("tr").nextUntil("tr.parent")[8].style.display = 'table-row';
+            $(this).closest("tr").nextUntil("tr.parent")[9].style.display = 'table-row';
+            $(this).closest("tr").nextUntil("tr.parent")[10].style.display = 'table-row';
+            $(this).closest("tr").nextUntil("tr.parent")[11].style.display = 'table-row';
+            $(this).closest("tr").nextUntil("tr.parent")[12].style.display = 'table-row';
+        } else {
+            $(this).closest("tr").nextUntil("tr.parent")[0].style.display = 'none';
+            $(this).closest("tr").nextUntil("tr.parent")[1].style.display = 'none';
+            $(this).closest("tr").nextUntil("tr.parent")[2].style.display = 'none';
+            $(this).closest("tr").nextUntil("tr.parent")[3].style.display = 'none';
+            $(this).closest("tr").nextUntil("tr.parent")[4].style.display = 'none';
+            $(this).closest("tr").nextUntil("tr.parent")[5].style.display = 'none';
+            $(this).closest("tr").nextUntil("tr.parent")[6].style.display = 'none';
+            $(this).closest("tr").nextUntil("tr.parent")[7].style.display = 'none';
+            $(this).closest("tr").nextUntil("tr.parent")[8].style.display = 'none';
+            $(this).closest("tr").nextUntil("tr.parent")[9].style.display = 'none';
+            $(this).closest("tr").nextUntil("tr.parent")[10].style.display = 'none';
+            $(this).closest("tr").nextUntil("tr.parent")[11].style.display = 'none';
+            $(this).closest("tr").nextUntil("tr.parent")[12].style.display = 'none';
+
+        }
+
+
+
+    });
+</script>
+
+</html>
